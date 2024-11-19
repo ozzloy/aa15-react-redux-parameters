@@ -1,7 +1,12 @@
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
-import ArticleList from './components/ArticleList';
-import SingleArticle from './components/SingleArticle';
-import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
+import ArticleList from "./components/ArticleList";
+import SingleArticle from "./components/SingleArticle";
+import "./App.css";
 
 function ArticleLayout() {
   return (
@@ -9,28 +14,28 @@ function ArticleLayout() {
       <ArticleList />
       <Outlet />
     </>
-  )
+  );
 }
 
 const router = createBrowserRouter([
   {
-    path: 'articles',
+    path: "articles",
     element: <ArticleLayout />,
     children: [
       {
-        path: ':id',
-        element: <SingleArticle />
-      }
-    ]
+        path: ":id",
+        element: <SingleArticle />,
+      },
+    ],
   },
   {
-    path: '*',
-    element: <Navigate to='/articles' replace={true} />
-  }
+    path: "*",
+    element: <Navigate to="/articles" replace={true} />,
+  },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
 
 export default App;
