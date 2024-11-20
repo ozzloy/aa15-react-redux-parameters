@@ -14,7 +14,11 @@ const initialState = { entries: [], isLoading: true };
 const articleReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_ARTICLES:
-      return { ...state, entries: [...action.articles] };
+      return {
+        ...state,
+        entries: [...action.articles],
+        isLoading: false,
+      };
     default:
       return state;
   }
